@@ -16,35 +16,35 @@ This unique approach aims to prevent reflexive, habitual app usage by introducin
 
 > *Main screen presenting restriction status and session management.*
 
-![Home Screen](screenshots/home-screen.JPG)
+<img src="screenshots/home-screen.JPG" alt="Choose Photo" width="400"/>
 *Clean and intuitive dashboard displaying session timer and quick access controls.*
 
 ### 📷 **AR Photo Scanning**
 
 > *Immersive ARKit integration with real-time 3D visual feedback.*
 
-https://github.com/user-attachments/assets/fa80a8aa-12f1-43f6-8daa-11b9908e5493
+<video src='https://github.com/user-attachments/assets/fa80a8aa-12f1-43f6-8daa-11b9908e5493' /></video>
 *Users must actively scan their chosen physical image, promoting mindful unlocking.*
 
 ### 🖼️ **Photo Selection (Placeholder Design)**
 
 > *Initial setup screen for selecting the user's physical unlock photo.*
 
-![Choose Photo](screenshots/choose-photo.PNG)
+<img src="screenshots/choose-photo.PNG" alt="Choose Photo" width="400"/>
 *Note: Current placeholder design, subject to upcoming UX/UI improvements.*
 
 ### 📱 **App Selection Interface**
 
 > *Granular app blocking via integrated Family Controls.*
 
-https://github.com/user-attachments/assets/c3661184-a66a-4715-93b9-d5132ee6bce6
+<video src='https://github.com/user-attachments/assets/c3661184-a66a-4715-93b9-d5132ee6bce6' /></video>
 *Seamless and precise selection of apps to block during focused sessions.*
 
 ### 🚀 **Onboarding Experience**
 
 > *Guided setup with engaging custom animations and AR tutorials.*
 
-https://github.com/user-attachments/assets/dd4e32c6-4cec-46d6-b40a-903285099805
+<video src='https://github.com/user-attachments/assets/dd4e32c6-4cec-46d6-b40a-903285099805' /></video>
 *Visually appealing walkthrough to familiarize users with idea of app.*
 
 ### ⚙️ **Settings & Configuration**
@@ -52,11 +52,11 @@ https://github.com/user-attachments/assets/dd4e32c6-4cec-46d6-b40a-903285099805
 > *Flexible options with standard and restricted modes.*
 
 * **Normal Settings Mode:**
-https://github.com/user-attachments/assets/32909e55-4d44-4ca0-9318-79e3d1d44ccb
+<video src='https://github.com/user-attachments/assets/32909e55-4d44-4ca0-9318-79e3d1d44ccb' /></video>
   *Accessible customization options for regular adjustments.*
 
 * **Restricted Settings Mode:**
-https://github.com/user-attachments/assets/37aafadf-3eb3-49f7-83a3-0aa7678f5b30
+<video src='https://github.com/user-attachments/assets/37aafadf-3eb3-49f7-83a3-0aa7678f5b30' /></video>
   *Advanced tamper-lock protections preventing impulsive session interruptions.*
 
 ### 📊 **Analytics Dashboard (coming soon)**
