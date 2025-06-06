@@ -23,7 +23,7 @@ This unique approach aims to prevent reflexive, habitual app usage by introducin
 
 > *Immersive ARKit integration with real-time 3D visual feedback.*
 
-![AR Scanning](screenshots/ar-scanning.MP4)
+https://github.com/user-attachments/assets/fa80a8aa-12f1-43f6-8daa-11b9908e5493
 *Users must actively scan their chosen physical image, promoting mindful unlocking.*
 
 ### 🖼️ **Photo Selection (Placeholder Design)**
@@ -37,26 +37,26 @@ This unique approach aims to prevent reflexive, habitual app usage by introducin
 
 > *Granular app blocking via integrated Family Controls.*
 
-![App Selection](screenshots/app-selection.MP4)
+https://github.com/user-attachments/assets/c3661184-a66a-4715-93b9-d5132ee6bce6
 *Seamless and precise selection of apps to block during focused sessions.*
 
 ### 🚀 **Onboarding Experience**
 
 > *Guided setup with engaging custom animations and AR tutorials.*
 
-![Onboarding](screenshots/onboarding.MP4)
-*Visually appealing walkthrough to familiarize users with AR-based unlocking.*
+https://github.com/user-attachments/assets/dd4e32c6-4cec-46d6-b40a-903285099805
+*Visually appealing walkthrough to familiarize users with idea of app.*
 
 ### ⚙️ **Settings & Configuration**
 
 > *Flexible options with standard and restricted modes.*
 
 * **Normal Settings Mode:**
-  ![Settings Normal](screenshots/settings-normal.MP4)
+https://github.com/user-attachments/assets/32909e55-4d44-4ca0-9318-79e3d1d44ccb
   *Accessible customization options for regular adjustments.*
 
 * **Restricted Settings Mode:**
-  ![Settings Restricted](screenshots/settings-restricted.MP4)
+https://github.com/user-attachments/assets/37aafadf-3eb3-49f7-83a3-0aa7678f5b30
   *Advanced tamper-lock protections preventing impulsive session interruptions.*
 
 ### 📊 **Analytics Dashboard (coming soon)**
