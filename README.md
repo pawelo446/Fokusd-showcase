@@ -86,6 +86,145 @@ The app uses a modular Swift Package Manager (SPM) design with clear separation 
 └── 🔧 Development Tools/           # Linting, formatting, pre-commit hooks
 ```
 
+### **🏗️ Dependency Injection Architecture**
+
+The application uses **Swinject 2.8.0+** for modern, type-safe dependency injection, replacing legacy custom containers with industry-standard patterns.
+
+#### **Core DI Components**
+
+```swift
+// Central dependency management singleton
+public final class DependencyManager {
+    public static let shared = DependencyManager()
+    private let assembler: Assembler
+    
+    public func resolve<T>(_ serviceType: T.Type) -> T {
+        return assembler.resolver.resolve(serviceType)!
+    }
+}
+
+// Modern property wrappers for clean injection
+@propertyWrapper
+public struct SwinjectInjected<T> {
+    public var wrappedValue: T {
+        DependencyManager.shared.resolve(T.self)
+    }
+}
+```
+
+#### **Assembly Pattern Architecture**
+
+Each module manages its own dependencies through dedicated assemblies:
+
+```swift
+// Base assembly with common functionality
+public class BaseDependencyAssembly: Assembly {
+    public func assemble(container: Container) {
+        // Base configuration
+    }
+}
+
+// Module-specific assemblies
+public final class PersistenceAssembly: BaseDependencyAssembly {
+    public override func assemble(container: Container) {
+        container.register(SwiftDataServiceProtocol.self) { _ in
+            SwiftDataService()
+        }.inObjectScope(.container)
+    }
+}
+
+public final class RestrictionsAssembly: BaseDependencyAssembly {
+    public override func assemble(container: Container) {
+        container.register(AppRestrictionProtocol.self) { resolver in
+            let swiftDataService = resolver.resolve(SwiftDataServiceProtocol.self)!
+            return RestrictionsManager(swiftDataService: swiftDataService)
+        }.inObjectScope(.container)
+    }
+}
+```
+
+#### **Application Configuration**
+
+```swift
+public enum AppDependencyConfiguration {
+    public static func configure() {
+        let assemblies: [Assembly] = [
+            PersistenceAssembly(),
+            RestrictionsAssembly(),
+            ScanningAssembly(),
+            AppAssembly()
+        ]
+        
+        DependencyManager.shared.configureContainer(with: assemblies)
+    }
+}
+
+// App startup
+@main
+struct FokusdApp: App {
+    init() {
+        AppDependencyConfiguration.configure()
+    }
+}
+```
+
+#### **Modern SwiftUI Integration**
+
+ViewModels use the modern `@Observable` macro with clean dependency resolution:
+
+```swift
+@Observable
+public final class HomeViewModel {
+    public private(set) var state: HomeState = .initial
+    private let restrictionsManager: AppRestrictionProtocol
+    private let scanningService: ScanningServiceProtocol
+    
+    public init(
+        restrictionsManager: AppRestrictionProtocol? = nil,
+        scanningService: ScanningServiceProtocol? = nil
+    ) {
+        self.restrictionsManager = restrictionsManager ?? 
+            DependencyManager.shared.resolve(AppRestrictionProtocol.self)
+        self.scanningService = scanningService ?? 
+            DependencyManager.shared.resolve(ScanningServiceProtocol.self)
+    }
+}
+
+// View ownership with @State
+public struct HomeView: View {
+    @State private var viewModel = HomeViewModel()
+    
+    var body: some View {
+        // SwiftUI content
+    }
+}
+```
+
+#### **Testing Support**
+
+The DI architecture enables comprehensive testing with mock injection:
+
+```swift
+// Test setup with dependency injection
+describe("HomeViewModel") {
+    var restrictionsManagerMock: AppRestrictionProtocolMock!
+    var scanningServiceMock: ScanningServiceProtocolMock!
+    
+    beforeEach {
+        restrictionsManagerMock = AppRestrictionProtocolMock()
+        scanningServiceMock = ScanningServiceProtocolMock()
+    }
+    
+    it("should handle restrictions properly") {
+        let viewModel = HomeViewModel(
+            restrictionsManager: restrictionsManagerMock,
+            scanningService: scanningServiceMock
+        )
+        // Test implementation
+    }
+}
+```
+
 ### **Development Tools & Quality Assurance**
 
 #### **Code Generation & Automation**
@@ -105,6 +244,7 @@ The app uses a modular Swift Package Manager (SPM) design with clear separation 
 - **Protocol-Oriented Design** - Dependency injection and testability
 - **Observable State Management** - Modern `@Observable` macro usage
 - **Modular Components** - Independent, reusable feature modules
+- **Assembly Pattern** - Organized dependency registration per module
 
 ---
 
@@ -268,7 +408,6 @@ func animate3DRecognitionFeedback() {
 
 ### **🔐 Security Architecture**
 - **Multi-Factor Protection**: AR + Family Controls + Tamper Lock
-- **Audit Trail**: Comprehensive logging of all security events
 - **Emergency Protocols**: Fail-safe mechanisms with limited override access
 - **Privacy-First**: Local processing with no data transmission
 
