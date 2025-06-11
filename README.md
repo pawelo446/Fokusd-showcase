@@ -27,8 +27,7 @@
 
 > *Initial setup screen for selecting the user's physical unlock photo.*
 
-<img src="screenshots/choose-photo.PNG" alt="Choose Photo" width="400"/>
-*Note: Current placeholder design, subject to upcoming UX/UI improvements.*
+<img src="screenshots/choose-photo.png" alt="Choose Photo" width="400"/>
 
 ### 📱 **App Selection Interface**
 
